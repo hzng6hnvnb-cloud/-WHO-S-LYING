@@ -1,0 +1,538 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --bg: #070708;
+    --card: #111114;
+    --card2: #18181d;
+    --text: #f5f5f5;
+    --muted: #85858d;
+    --red: #ff304f;
+    --red-dark: #b81730;
+    --border: rgba(255,255,255,.08);
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: Arial, Helvetica, sans-serif;
+    min-height: 100vh;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    border: 0;
+    cursor: pointer;
+}
+
+.app {
+    min-height: 100vh;
+}
+
+.page {
+    min-height: 100vh;
+    display: none;
+    position: relative;
+}
+
+.page.active {
+    display: block;
+}
+
+.topbar {
+    height: 90px;
+    padding: 0 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mark {
+    width: 45px;
+    height: 45px;
+    border-radius: 13px;
+    background: var(--red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 24px;
+}
+
+.logo h3 {
+    font-size: 17px;
+}
+
+.logo span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.icon-btn,
+.back-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: var(--card);
+    color: white;
+    border: 1px solid var(--border);
+}
+
+.hero {
+    max-width: 800px;
+    margin: auto;
+    text-align: center;
+    padding: 100px 25px 40px;
+}
+
+.eyebrow {
+    display: inline-block;
+    color: var(--red);
+    font-size: 11px;
+    letter-spacing: 2px;
+    margin-bottom: 25px;
+}
+
+.hero h1 {
+    font-size: clamp(65px, 13vw, 135px);
+    line-height: .82;
+    letter-spacing: -7px;
+    margin-bottom: 35px;
+}
+
+.hero h1 span,
+.title span,
+.center-box span,
+.vote-box span,
+.final-box span {
+    color: var(--red);
+}
+
+.hero p {
+    max-width: 530px;
+    margin: auto;
+    color: var(--muted);
+    line-height: 1.8;
+}
+
+.primary-btn {
+    margin-top: 30px;
+    background: var(--red);
+    color: white;
+    padding: 17px 27px;
+    border-radius: 13px;
+    font-weight: 900;
+    letter-spacing: .5px;
+}
+
+.primary-btn span {
+    color: white;
+    margin-left: 10px;
+}
+
+.primary-btn:hover {
+    background: var(--red-dark);
+}
+
+.secondary-btn {
+    display: block;
+    margin: 16px auto;
+    background: transparent;
+    color: var(--muted);
+    padding: 10px;
+}
+
+.full {
+    width: 100%;
+}
+
+.hero footer,
+.page > footer {
+    position: absolute;
+    bottom: 25px;
+    width: 100%;
+    text-align: center;
+    color: #55555c;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.setup {
+    max-width: 650px;
+    margin: auto;
+    padding: 35px 20px 60px;
+}
+
+.title {
+    margin: 50px 0 35px;
+}
+
+.title small,
+.center-box > small,
+.vote-box > small,
+.result-box > small,
+.final-box > small {
+    color: var(--red);
+    letter-spacing: 2px;
+    font-size: 10px;
+}
+
+.title h2,
+.center-box h2,
+.vote-box h2,
+.result-box h2,
+.final-box h2 {
+    font-size: 48px;
+    line-height: .95;
+    margin-top: 12px;
+}
+
+.title p,
+.center-box p,
+.vote-box p,
+.result-box p {
+    color: var(--muted);
+    margin-top: 15px;
+    line-height: 1.7;
+}
+
+.panel {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 18px;
+    padding: 20px;
+    margin-bottom: 15px;
+}
+
+.panel-head {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.panel-head span {
+    color: var(--muted);
+    font-size: 12px;
+}
+
+.player-row {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.player-row b {
+    color: var(--red);
+    font-size: 11px;
+}
+
+.player-row input {
+    width: 100%;
+    background: transparent;
+    border: 0;
+    outline: 0;
+    color: white;
+}
+
+.player-row input::placeholder {
+    color: #55555c;
+}
+
+.add-btn {
+    width: 100%;
+    margin-top: 15px;
+    padding: 13px;
+    border-radius: 11px;
+    background: var(--card2);
+    color: white;
+}
+
+.rounds {
+    display: flex;
+    gap: 10px;
+}
+
+.round {
+    flex: 1;
+    padding: 14px;
+    border-radius: 10px;
+    background: var(--card2);
+    color: var(--muted);
+}
+
+.round.active {
+    background: var(--red);
+    color: white;
+}
+
+.center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px;
+}
+
+.center-box,
+.vote-box,
+.result-box,
+.final-box {
+    width: 100%;
+    max-width: 500px;
+    text-align: center;
+}
+
+.big-icon,
+.result-icon,
+.trophy {
+    font-size: 55px;
+    margin-bottom: 25px;
+}
+
+.secret {
+    margin-top: 25px;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px 20px;
+    font-size: 32px;
+    font-weight: 900;
+}
+
+.timer-big {
+    margin: 35px 0;
+    font-size: 70px;
+    font-weight: 900;
+}
+
+.timer-big small {
+    display: block;
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 7%;
+}
+
+.game-header small {
+    color: var(--muted);
+    display: block;
+    font-size: 9px;
+}
+
+.game-header strong {
+    font-size: 25px;
+}
+
+.game-timer {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 12px 18px;
+    border-radius: 12px;
+}
+
+.question-page {
+    max-width: 650px;
+    margin: 60px auto;
+    padding: 20px;
+}
+
+.question-card {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 35px;
+}
+
+.question-card small,
+.examples small {
+    color: var(--red);
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.question-card h2 {
+    margin-top: 15px;
+    line-height: 1.3;
+}
+
+.examples {
+    margin-top: 25px;
+}
+
+.examples button {
+    display: block;
+    width: 100%;
+    text-align: right;
+    margin-top: 10px;
+    padding: 15px;
+    border-radius: 11px;
+    background: var(--card);
+    color: #bbb;
+    border: 1px solid var(--border);
+}
+
+.vote-list {
+    margin-top: 30px;
+}
+
+.vote-player {
+    width: 100%;
+    padding: 16px;
+    margin-top: 10px;
+    border-radius: 12px;
+    background: var(--card);
+    color: white;
+    border: 1px solid var(--border);
+}
+
+.vote-player.selected {
+    border-color: var(--red);
+    background: rgba(255,48,79,.12);
+}
+
+.primary-btn.disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.location-result {
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    padding: 25px;
+    margin: 25px 0;
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.last-chance {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 16px;
+}
+
+.last-chance h3 {
+    color: var(--red);
+}
+
+.last-chance button {
+    width: 100%;
+    margin-top: 8px;
+    padding: 13px;
+    border-radius: 10px;
+    background: var(--card2);
+    color: white;
+}
+
+.last-chance button.correct {
+    background: #238636;
+}
+
+.last-chance button.wrong {
+    background: #7d1e2d;
+}
+
+.final-scores {
+    margin-top: 30px;
+}
+
+.score {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    margin-top: 8px;
+    border-radius: 10px;
+    background: var(--card);
+}
+
+.modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    z-index: 10;
+}
+
+.modal.show {
+    display: flex;
+}
+
+.modal-card {
+    max-width: 500px;
+    width: 100%;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 30px;
+    position: relative;
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    background: transparent;
+    color: white;
+    font-size: 25px;
+}
+
+.rule {
+    display: flex;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.rule b {
+    color: var(--red);
+}
+
+.rule p {
+    color: #aaa;
+    line-height: 1.5;
+}
+
+@media (max-width: 600px) {
+
+    .hero {
+        padding-top: 70px;
+    }
+
+    .hero h1 {
+        letter-spacing: -4px;
+    }
+
+    .title h2,
+    .center-box h2,
+    .vote-box h2,
+    .result-box h2,
+    .final-box h2 {
+        font-size: 40px;
+    }
+
+}
