@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WHO'S LYING?</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="app">
+
+    <!-- HOME -->
+    <section id="home" class="page active">
+
+        <header class="topbar">
+            <div class="logo">
+                <div class="logo-mark">?</div>
+                <div>
+                    <h3>WHO'S LYING?</h3>
+                    <span>TRUST NO ONE</span>
+                </div>
+            </div>
+
+            <button class="icon-btn" onclick="showRules()">?</button>
+        </header>
+
+        <main class="hero">
+
+            <div class="eyebrow">
+                ● SOCIAL DEDUCTION GAME
+            </div>
+
+            <h1>
+                WHO'S<br>
+                <span>LYING?</span>
+            </h1>
+
+            <p>
+                One player doesn't know the truth.
+                Ask questions, find the liar,
+                and expose them before it's too late.
+            </p>
+
+            <button class="primary-btn" onclick="showSetup()">
+                START GAME
+                <span>→</span>
+            </button>
+
+            <button class="secondary-btn" onclick="showRules()">
+                HOW TO PLAY
+            </button>
+
+        </main>
+
+        <footer>
+            3–10 PLAYERS • MULTIPLE ROUNDS • BLUFF & VOTE
+        </footer>
+
+    </section>
+
+
+    <!-- SETUP -->
+    <section id="setup" class="page">
+
+        <div class="setup">
+
+            <button class="back-btn" onclick="goHome()">←</button>
+
+            <div class="title">
+                <small>STEP 01</small>
+                <h2>SET UP<br><span>THE GAME.</span></h2>
+                <p>Add everyone who's playing.</p>
+            </div>
+
+            <div class="panel">
+
+                <div class="panel-head">
+                    <strong>PLAYERS</strong>
+                    <span id="playerCount">3 / 10</span>
+                </div>
+
+                <div id="playersList">
+
+                    <div class="player-row">
+                        <b>01</b>
+                        <input
+                            type="text"
+                            placeholder="Player name"
+                            maxlength="20"
+                        >
+                    </div>
+
+                    <div class="player-row">
+                        <b>02</b>
+                        <input
+                            type="text"
+                            placeholder="Player name"
+                            maxlength="20"
+                        >
+                    </div>
+
+                    <div class="player-row">
+                        <b>03</b>
+                        <input
+                            type="text"
+                            placeholder="Player name"
+                            maxlength="20"
+                        >
+                    </div>
+
+                </div>
+
+                <button class="add-btn" onclick="addPlayer()">
+                    + ADD PLAYER
+                </button>
+
+            </div>
+
+            <div class="panel">
+
+                <div class="panel-head">
+                    <strong>ROUNDS</strong>
+                </div>
+
+                <div class="rounds">
+
+                    <button
+                        class="round active"
+                        onclick="selectRounds(3,this)"
+                    >
+                        3
+                    </button>
+
+                    <button
+                        class="round"
+                        onclick="selectRounds(5,this)"
+                    >
+                        5
+                    </button>
+
+                    <button
+                        class="round"
+                        onclick="selectRounds(10,this)"
+                    >
+                        10
+                    </button>
+
+                </div>
+
+            </div>
+
+            <button class="primary-btn full" onclick="startGame()">
+                START GAME →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- PASS DEVICE -->
+    <section id="pass" class="page center">
+
+        <div class="center-box">
+
+            <div class="big-icon">🔒</div>
+
+            <small>NEXT PLAYER</small>
+
+            <h2 id="passPlayer">
+                PLAYER
+            </h2>
+
+            <p>
+                Pass the phone to this player.
+                Make sure nobody else can see the screen.
+            </p>
+
+            <button class="primary-btn" onclick="showSecret()">
+                I'M READY →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- SECRET -->
+    <section id="secret" class="page center">
+
+        <div class="center-box">
+
+            <div id="secretIcon" class="big-icon">
+                👤
+            </div>
+
+            <small id="secretLabel">
+                YOUR SECRET
+            </small>
+
+            <h2 id="secretTitle">
+                THE LOCATION
+            </h2>
+
+            <div id="secretContent" class="secret">
+                AIRPORT ✈️
+            </div>
+
+            <p id="secretDescription">
+                Remember this information.
+                Do not show it to anyone.
+            </p>
+
+            <button class="primary-btn" onclick="nextSecret()">
+                GOT IT ✓
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- ROUND START -->
+    <section id="roundStart" class="page center">
+
+        <div class="center-box">
+
+            <small>
+                ROUND <span id="currentRound">1</span>
+            </small>
+
+            <h2>
+                TIME TO<br>
+                <span>INVESTIGATE.</span>
+            </h2>
+
+            <p>
+                Ask questions.
+                Watch everyone's answers.
+                Find the liar.
+            </p>
+
+            <div class="timer-big">
+                <span id="timer">60</span>
+                <small>SECONDS</small>
+            </div>
+
+            <button class="primary-btn" onclick="startQuestions()">
+                START QUESTIONS →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- QUESTIONS -->
+    <section id="questions" class="page">
+
+        <header class="game-header">
+
+            <div>
+                <small>ROUND</small>
+                <strong id="questionRound">1</strong>
+            </div>
+
+            <div class="game-timer">
+                <span id="questionTimer">60</span>s
+            </div>
+
+        </header>
+
+        <main class="question-page">
+
+            <div class="question-card">
+
+                <small>ASK ANY PLAYER</small>
+
+                <h2>
+                    Ask something that helps
+                    reveal the location.
+                </h2>
+
+            </div>
+
+            <div class="examples">
+
+                <small>QUESTION IDEAS</small>
+
+                <button>Is this place usually crowded?</button>
+                <button>Would you go there at night?</button>
+                <button>Do you visit this place often?</button>
+
+            </div>
+
+            <button
+                class="primary-btn full"
+                onclick="startVoting()"
+            >
+                START VOTING →
+            </button>
+
+        </main>
+
+    </section>
+
+
+    <!-- VOTING -->
+    <section id="voting" class="page center">
+
+        <div class="vote-box">
+
+            <small>
+                ROUND <span id="voteRound">1</span>
+            </small>
+
+            <h2>
+                WHO'S<br>
+                <span>LYING?</span>
+            </h2>
+
+            <p>
+                Choose the player you suspect.
+            </p>
+
+            <div id="votePlayers" class="vote-list"></div>
+
+            <button
+                id="voteButton"
+                class="primary-btn full disabled"
+                disabled
+                onclick="submitVote()"
+            >
+                CONFIRM VOTE
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESULT -->
+    <section id="result" class="page center">
+
+        <div class="result-box">
+
+            <div class="result-icon">
+                🚨
+            </div>
+
+            <small>THE LIAR WAS</small>
+
+            <h2 id="resultName">
+                PLAYER
+            </h2>
+
+            <p>
+                The real location was:
+            </p>
+
+            <div class="location-result">
+                <span id="resultPlace">
+                    AIRPORT ✈️
+                </span>
+            </div>
+
+            <div id="lastChance" class="last-chance">
+
+                <h3>
+                    🎯 LAST CHANCE
+                </h3>
+
+                <p>
+                    The liar can still guess the location.
+                </p>
+
+                <div id="placeChoices"></div>
+
+            </div>
+
+            <button
+                class="primary-btn full"
+                onclick="nextRound()"
+            >
+                NEXT ROUND →
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section id="final" class="page center">
+
+        <div class="final-box">
+
+            <div class="trophy">
+                🏆
+            </div>
+
+            <small>GAME OVER</small>
+
+            <h2>
+                FINAL<br>
+                <span>RESULTS.</span>
+            </h2>
+
+            <div id="finalScores"></div>
+
+            <button
+                class="primary-btn full"
+                onclick="restartGame()"
+            >
+                PLAY AGAIN ↻
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- RULES -->
+    <div id="rulesModal" class="modal">
+
+        <div class="modal-card">
+
+            <button class="close" onclick="closeRules()">×</button>
+
+            <div class="big-icon">🕵️</div>
+
+            <h2>HOW TO PLAY</h2>
+
+            <div class="rule">
+                <b>01</b>
+                <p>Add 3–10 players.</p>
+            </div>
+
+            <div class="rule">
+                <b>02</b>
+                <p>Everyone secretly receives the location.</p>
+            </div>
+
+            <div class="rule">
+                <b>03</b>
+                <p>One player is the liar and doesn't know the location.</p>
+            </div>
+
+            <div class="rule">
+                <b>04</b>
+                <p>Ask questions and watch the answers.</p>
+            </div>
+
+            <div class="rule">
+                <b>05</b>
+                <p>Vote for the person you think is lying.</p>
+            </div>
+
+            <div class="rule">
+                <b>06</b>
+                <p>If the liar is caught, they get one final guess.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
