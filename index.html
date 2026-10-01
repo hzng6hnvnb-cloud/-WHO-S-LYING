@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WHO'S LYING?</title>
+    <title>مين الكذاب؟</title>
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -11,109 +11,95 @@
 
 <div class="app">
 
-    <!-- HOME -->
+    <!-- الرئيسية -->
     <section id="home" class="page active">
 
         <header class="topbar">
             <div class="logo">
-                <div class="logo-mark">?</div>
+                <div class="logo-mark">؟</div>
                 <div>
-                    <h3>WHO'S LYING?</h3>
-                    <span>TRUST NO ONE</span>
+                    <h3>مين الكذاب؟</h3>
+                    <span>لا تثق بأحد</span>
                 </div>
             </div>
 
-            <button class="icon-btn" onclick="showRules()">?</button>
+            <button class="icon-btn" onclick="showRules()">؟</button>
         </header>
 
         <main class="hero">
 
-            <div class="eyebrow">
-                ● SOCIAL DEDUCTION GAME
-            </div>
+            <div class="eyebrow">● لعبة كشف الكذاب</div>
 
             <h1>
-                WHO'S<br>
-                <span>LYING?</span>
+                مين<br>
+                <span>الكذاب؟</span>
             </h1>
 
             <p>
-                One player doesn't know the truth.
-                Ask questions, find the liar,
-                and expose them before it's too late.
+                لاعب واحد ما يعرف الحقيقة.
+                اسألوا بعض، راقبوا الإجابات،
+                واكتشفوا الكذاب قبل انتهاء الوقت.
             </p>
 
             <button class="primary-btn" onclick="showSetup()">
-                START GAME
-                <span>→</span>
+                ابدأ اللعبة
+                <span>←</span>
             </button>
 
             <button class="secondary-btn" onclick="showRules()">
-                HOW TO PLAY
+                طريقة اللعب
             </button>
 
         </main>
 
         <footer>
-            3–10 PLAYERS • MULTIPLE ROUNDS • BLUFF & VOTE
+            ٣–١٠ لاعبين • عدة جولات • اسأل وصوّت واكتشف
         </footer>
 
     </section>
 
 
-    <!-- SETUP -->
+    <!-- الإعداد -->
     <section id="setup" class="page">
 
         <div class="setup">
 
-            <button class="back-btn" onclick="goHome()">←</button>
+            <button class="back-btn" onclick="goHome()">→</button>
 
             <div class="title">
-                <small>STEP 01</small>
-                <h2>SET UP<br><span>THE GAME.</span></h2>
-                <p>Add everyone who's playing.</p>
+                <small>الخطوة ١</small>
+                <h2>جهّزوا<br><span>اللعبة.</span></h2>
+                <p>أضف أسماء جميع اللاعبين.</p>
             </div>
 
             <div class="panel">
 
                 <div class="panel-head">
-                    <strong>PLAYERS</strong>
-                    <span id="playerCount">3 / 10</span>
+                    <strong>اللاعبون</strong>
+                    <span id="playerCount">٣ / ١٠</span>
                 </div>
 
                 <div id="playersList">
 
                     <div class="player-row">
-                        <b>01</b>
-                        <input
-                            type="text"
-                            placeholder="Player name"
-                            maxlength="20"
-                        >
+                        <b>٠١</b>
+                        <input type="text" placeholder="اسم اللاعب" maxlength="20">
                     </div>
 
                     <div class="player-row">
-                        <b>02</b>
-                        <input
-                            type="text"
-                            placeholder="Player name"
-                            maxlength="20"
-                        >
+                        <b>٠٢</b>
+                        <input type="text" placeholder="اسم اللاعب" maxlength="20">
                     </div>
 
                     <div class="player-row">
-                        <b>03</b>
-                        <input
-                            type="text"
-                            placeholder="Player name"
-                            maxlength="20"
-                        >
+                        <b>٠٣</b>
+                        <input type="text" placeholder="اسم اللاعب" maxlength="20">
                     </div>
 
                 </div>
 
                 <button class="add-btn" onclick="addPlayer()">
-                    + ADD PLAYER
+                    + إضافة لاعب
                 </button>
 
             </div>
@@ -121,30 +107,21 @@
             <div class="panel">
 
                 <div class="panel-head">
-                    <strong>ROUNDS</strong>
+                    <strong>عدد الجولات</strong>
                 </div>
 
                 <div class="rounds">
 
-                    <button
-                        class="round active"
-                        onclick="selectRounds(3,this)"
-                    >
-                        3
+                    <button class="round active" onclick="selectRounds(3,this)">
+                        ٣
                     </button>
 
-                    <button
-                        class="round"
-                        onclick="selectRounds(5,this)"
-                    >
-                        5
+                    <button class="round" onclick="selectRounds(5,this)">
+                        ٥
                     </button>
 
-                    <button
-                        class="round"
-                        onclick="selectRounds(10,this)"
-                    >
-                        10
+                    <button class="round" onclick="selectRounds(10,this)">
+                        ١٠
                     </button>
 
                 </div>
@@ -152,7 +129,7 @@
             </div>
 
             <button class="primary-btn full" onclick="startGame()">
-                START GAME →
+                ابدأ اللعبة ←
             </button>
 
         </div>
@@ -160,26 +137,24 @@
     </section>
 
 
-    <!-- PASS DEVICE -->
+    <!-- تسليم الجوال -->
     <section id="pass" class="page center">
 
         <div class="center-box">
 
             <div class="big-icon">🔒</div>
 
-            <small>NEXT PLAYER</small>
+            <small>اللاعب التالي</small>
 
-            <h2 id="passPlayer">
-                PLAYER
-            </h2>
+            <h2 id="passPlayer">اللاعب</h2>
 
             <p>
-                Pass the phone to this player.
-                Make sure nobody else can see the screen.
+                سلّم الجوال لهذا اللاعب.
+                تأكد أن لا أحد يرى الشاشة.
             </p>
 
             <button class="primary-btn" onclick="showSecret()">
-                I'M READY →
+                أنا جاهز ←
             </button>
 
         </div>
@@ -187,34 +162,27 @@
     </section>
 
 
-    <!-- SECRET -->
+    <!-- السر -->
     <section id="secret" class="page center">
 
         <div class="center-box">
 
-            <div id="secretIcon" class="big-icon">
-                👤
-            </div>
+            <div id="secretIcon" class="big-icon">👤</div>
 
-            <small id="secretLabel">
-                YOUR SECRET
-            </small>
+            <small id="secretLabel">سرك</small>
 
-            <h2 id="secretTitle">
-                THE LOCATION
-            </h2>
+            <h2 id="secretTitle">المكان</h2>
 
             <div id="secretContent" class="secret">
-                AIRPORT ✈️
+                المطار ✈️
             </div>
 
             <p id="secretDescription">
-                Remember this information.
-                Do not show it to anyone.
+                احفظ المعلومة ولا تخبر أحداً بها.
             </p>
 
             <button class="primary-btn" onclick="nextSecret()">
-                GOT IT ✓
+                فهمت ✓
             </button>
 
         </div>
@@ -222,33 +190,32 @@
     </section>
 
 
-    <!-- ROUND START -->
+    <!-- بداية الجولة -->
     <section id="roundStart" class="page center">
 
         <div class="center-box">
 
             <small>
-                ROUND <span id="currentRound">1</span>
+                الجولة <span id="currentRound">١</span>
             </small>
 
             <h2>
-                TIME TO<br>
-                <span>INVESTIGATE.</span>
+                وقت<br>
+                <span>التحقيق.</span>
             </h2>
 
             <p>
-                Ask questions.
-                Watch everyone's answers.
-                Find the liar.
+                اسألوا بعض، ركزوا في الإجابات،
+                وحاولوا اكتشاف الكذاب.
             </p>
 
             <div class="timer-big">
-                <span id="timer">60</span>
-                <small>SECONDS</small>
+                <span>٦٠</span>
+                <small>ثانية</small>
             </div>
 
             <button class="primary-btn" onclick="startQuestions()">
-                START QUESTIONS →
+                ابدأ الأسئلة ←
             </button>
 
         </div>
@@ -256,18 +223,18 @@
     </section>
 
 
-    <!-- QUESTIONS -->
+    <!-- الأسئلة -->
     <section id="questions" class="page">
 
         <header class="game-header">
 
             <div>
-                <small>ROUND</small>
-                <strong id="questionRound">1</strong>
+                <small>الجولة</small>
+                <strong id="questionRound">١</strong>
             </div>
 
             <div class="game-timer">
-                <span id="questionTimer">60</span>s
+                <span id="questionTimer">٦٠</span> ث
             </div>
 
         </header>
@@ -276,30 +243,27 @@
 
             <div class="question-card">
 
-                <small>ASK ANY PLAYER</small>
+                <small>اسأل أي لاعب</small>
 
                 <h2>
-                    Ask something that helps
-                    reveal the location.
+                    اسأل سؤالاً يساعدك
+                    على معرفة المكان.
                 </h2>
 
             </div>
 
             <div class="examples">
 
-                <small>QUESTION IDEAS</small>
+                <small>أفكار لأسئلة</small>
 
-                <button>Is this place usually crowded?</button>
-                <button>Would you go there at night?</button>
-                <button>Do you visit this place often?</button>
+                <button>هل المكان عادةً مزدحم؟</button>
+                <button>هل تروح لهذا المكان بالليل؟</button>
+                <button>هل تزور هذا المكان كثير؟</button>
 
             </div>
 
-            <button
-                class="primary-btn full"
-                onclick="startVoting()"
-            >
-                START VOTING →
+            <button class="primary-btn full" onclick="startVoting()">
+                ابدأ التصويت ←
             </button>
 
         </main>
@@ -307,22 +271,22 @@
     </section>
 
 
-    <!-- VOTING -->
+    <!-- التصويت -->
     <section id="voting" class="page center">
 
         <div class="vote-box">
 
             <small>
-                ROUND <span id="voteRound">1</span>
+                الجولة <span id="voteRound">١</span>
             </small>
 
             <h2>
-                WHO'S<br>
-                <span>LYING?</span>
+                من<br>
+                <span>الكذاب؟</span>
             </h2>
 
             <p>
-                Choose the player you suspect.
+                اختر اللاعب الذي تشك أنه الكذاب.
             </p>
 
             <div id="votePlayers" class="vote-list"></div>
@@ -331,9 +295,8 @@
                 id="voteButton"
                 class="primary-btn full disabled"
                 disabled
-                onclick="submitVote()"
-            >
-                CONFIRM VOTE
+                onclick="submitVote()">
+                تأكيد التصويت
             </button>
 
         </div>
@@ -341,50 +304,37 @@
     </section>
 
 
-    <!-- RESULT -->
+    <!-- النتيجة -->
     <section id="result" class="page center">
 
         <div class="result-box">
 
-            <div class="result-icon">
-                🚨
-            </div>
+            <div class="result-icon">🚨</div>
 
-            <small>THE LIAR WAS</small>
+            <small>الكذاب هو</small>
 
-            <h2 id="resultName">
-                PLAYER
-            </h2>
+            <h2 id="resultName">اللاعب</h2>
 
-            <p>
-                The real location was:
-            </p>
+            <p>المكان الحقيقي كان:</p>
 
             <div class="location-result">
-                <span id="resultPlace">
-                    AIRPORT ✈️
-                </span>
+                <span id="resultPlace">المطار ✈️</span>
             </div>
 
             <div id="lastChance" class="last-chance">
 
-                <h3>
-                    🎯 LAST CHANCE
-                </h3>
+                <h3>🎯 الفرصة الأخيرة</h3>
 
                 <p>
-                    The liar can still guess the location.
+                    أمام الكذاب فرصة أخيرة لتخمين المكان.
                 </p>
 
                 <div id="placeChoices"></div>
 
             </div>
 
-            <button
-                class="primary-btn full"
-                onclick="nextRound()"
-            >
-                NEXT ROUND →
+            <button class="primary-btn full" onclick="nextRound()">
+                الجولة التالية ←
             </button>
 
         </div>
@@ -392,29 +342,24 @@
     </section>
 
 
-    <!-- FINAL -->
+    <!-- النهاية -->
     <section id="final" class="page center">
 
         <div class="final-box">
 
-            <div class="trophy">
-                🏆
-            </div>
+            <div class="trophy">🏆</div>
 
-            <small>GAME OVER</small>
+            <small>انتهت اللعبة</small>
 
             <h2>
-                FINAL<br>
-                <span>RESULTS.</span>
+                النتائج<br>
+                <span>النهائية.</span>
             </h2>
 
-            <div id="finalScores"></div>
+            <div id="finalScores" class="final-scores"></div>
 
-            <button
-                class="primary-btn full"
-                onclick="restartGame()"
-            >
-                PLAY AGAIN ↻
+            <button class="primary-btn full" onclick="restartGame()">
+                العب مرة ثانية ↻
             </button>
 
         </div>
@@ -422,7 +367,7 @@
     </section>
 
 
-    <!-- RULES -->
+    <!-- القواعد -->
     <div id="rulesModal" class="modal">
 
         <div class="modal-card">
@@ -431,36 +376,36 @@
 
             <div class="big-icon">🕵️</div>
 
-            <h2>HOW TO PLAY</h2>
+            <h2>طريقة اللعب</h2>
 
             <div class="rule">
-                <b>01</b>
-                <p>Add 3–10 players.</p>
+                <b>٠١</b>
+                <p>أضف من ٣ إلى ١٠ لاعبين.</p>
             </div>
 
             <div class="rule">
-                <b>02</b>
-                <p>Everyone secretly receives the location.</p>
+                <b>٠٢</b>
+                <p>كل اللاعبين يشوفون المكان بشكل سري.</p>
             </div>
 
             <div class="rule">
-                <b>03</b>
-                <p>One player is the liar and doesn't know the location.</p>
+                <b>٠٣</b>
+                <p>لاعب واحد يكون هو الكذاب ولا يعرف المكان.</p>
             </div>
 
             <div class="rule">
-                <b>04</b>
-                <p>Ask questions and watch the answers.</p>
+                <b>٠٤</b>
+                <p>اسألوا بعض وراقبوا الإجابات.</p>
             </div>
 
             <div class="rule">
-                <b>05</b>
-                <p>Vote for the person you think is lying.</p>
+                <b>٠٥</b>
+                <p>صوّتوا على الشخص الذي تشكون فيه.</p>
             </div>
 
             <div class="rule">
-                <b>06</b>
-                <p>If the liar is caught, they get one final guess.</p>
+                <b>٠٦</b>
+                <p>إذا انكشف الكذاب، يحصل على فرصة أخيرة لتخمين المكان.</p>
             </div>
 
         </div>
